@@ -12,7 +12,7 @@ interface LessonProps {
 export function Lesson(props: LessonProps) {
   const isLiveLesson = props.type === 'live' ? true : false;
   const isLessonAvailable = isPast(props.availableAt)
-  const availableDateFormat = format(props.availableAt, "EEEE' • 'd' de 'MMMM ' • 'K 'h'mm", {
+  const availableDateFormat = format(props.availableAt, "EEEE' • 'd' de 'MMMM ' • 'KK'h'mm", {
     locale: ptBR
   })
 

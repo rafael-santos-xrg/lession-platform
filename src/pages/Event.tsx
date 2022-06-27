@@ -1,6 +1,6 @@
-import { Description } from "../components/Description";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { Main } from "../components/Main";
 import { Sidebar } from "../components/Sidebar";
 
 export function Event() {
@@ -10,7 +10,7 @@ export function Event() {
         <Header />
       </header>
       <main className="flex flex-1">
-        <Description />
+        <Main />
         <Sidebar />
       </main>
       <footer>

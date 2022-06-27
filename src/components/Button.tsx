@@ -1,6 +1,6 @@
 import { DiscordLogo, Lightning } from "phosphor-react";
 
-export function Button(props: {variant?: string}) {
+export function Button( props: {variant?: string}) {
   if(props.variant == 'primary') {
     return (
       <a href="" className="p-4 text-sm bg-[#5865F2] flex items-center rounded font-bold uppercase gap-2.5 justify-center hover:bg-[#404EED] transition-colors">

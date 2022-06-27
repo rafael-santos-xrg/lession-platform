@@ -2,7 +2,7 @@ import { Button } from "./Button";
 import { Card } from "./Card";
 import { Video } from "./Video";
 
-export function Description() {
+export function Main() {
   return (
     <div className="flex-1">
       <Video />
@@ -32,9 +32,9 @@ export function Description() {
             <span className="text-gray-200 text-sm block">Dev Jr. da @Jurify</span>
           </div>
         </div>
-        <div className="gap-8 mt-20 grid grid-cols-2">
-          <Card />
-          <Card />
+        <div className="gap-8 mt-20 grid grid-cols-2 mb-20">
+          < Card variant="primary" />
+          < Card variant="secondary" />
         </div>
       </div>
     </div>
