@@ -1,16 +1,45 @@
+import { gql, useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import { Button } from "./Button";
 import { Card } from "./Card";
 import { Video } from "./Video";
 
+const GET_LESSONS_BY_SLUG = gql `
+  query MyQuery {
+  lessons(orderBy: availableAt_ASC, stage: PUBLISHED) {
+    id
+    title
+    slug
+    availableAt
+    lessonType
+  }
+}
+`
+interface GetLessonsBySlug {
+  lessons: {
+    id: string;
+    title: string;
+    slug: string;
+    availableAt: string;
+    lessonType: 'live' | 'class'
+  }[]
+}
+
 export function Main() {
+  const { slug } = useParams<{ slug: string }>()
+  const {data} = useQuery<GetLessonsBySlug>(GET_LESSONS_BY_SLUG)
+  if (!data){
+    <div className="flex-1">
+      <p>Carregando</p>
+    </div>
+  }
   return (
     <div className="flex-1">
-      <Video />
+      <Video lessonSlug={slug} />
       <div className="p-8 max-w-[1100px] mx-auto">
         <div className="flex gap-4 align-start">
           <div className="flex-1">
             <h1 className="text-2xl font-bold ">
-              Aula 01 - Criando o projeto e realizando o setup inicial
             </h1>
             <p className="mt-4 leading-relaxed text-gray-200">
             Nessa aula vamos dar início ao projeto criando a estrutura base da
