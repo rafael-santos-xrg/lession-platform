@@ -13,8 +13,8 @@ export function Event() {
         <Header />
       </header>
       <main className="flex flex-1">
-        {slug ? <Main /> : <RootMain />}
         <Sidebar />
+        {slug ? <Main lessonSlug={slug}/> : <RootMain />}
       </main>
       <footer>
         <Footer />
